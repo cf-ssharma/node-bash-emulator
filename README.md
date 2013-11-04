@@ -1,2 +1,2 @@
-cf-nodemanager
-==============
+node-bash-emulator
+==================
