@@ -1,5 +1,5 @@
 {
-  "name": "cf-nodemanager",
+  "name": "node-bash-emulator",
   "version": "0.0.0",
   "description": "Tool to manage running node processes in Content Fleet;s server",
   "main": "index.js",
@@ -16,7 +16,6 @@
   "keywords": [
     "nodemanager"
   ],
-  "author": "Shobhit Sharma <ssharma@contentfleet.com>",
   "license": "Commercial",
   "readmeFilename": "README.md",
   "gitHead": "7a860d14a4f42f94e075cf6f09ae35465f961f2d",
