@@ -1,0 +1,43 @@
+<!doctype html>
+<html><head>
+  <script src="/static/jquery1.7.js"></script>
+  <script src="/static/sockjs-0.3.min.js"></script>
+  <link rel="stylesheet" href="/static/ansi.css" type="text/css" media="all" />
+  <link rel="stylesheet" href="/static/jqconsole.css" type="text/css" media="all" />
+  <script src="/static/jqconsole.min.js" type="text/javascript" charset="utf-8"></script>
+</head>
+<body lang="en">
+<div id="console"></div>
+
+<script>
+  $(function () {
+    var options = {
+      debug: true,
+      devel: true,
+      protocols_whitelist: ['websocket', 'xdr-streaming', 'xhr-streaming', 'iframe-eventsource', 'iframe-htmlfile',
+        'xdr-polling', 'xhr-polling', 'iframe-xhr-polling', 'jsonp-polling']
+    }
+    ws = new SockJS('/terminal-emulator', null, options);
+
+    ws.onopen = function() {
+      jqconsole = $('#console').jqconsole('', '');
+    };
+    ws.onmessage = function(e) {
+      if (e.data.trim() !== $('.jqconsole-old-prompt:last').find('span').text().trim()) {
+        jqconsole.Write(e.data, 'jqconsole-output');
+      }
+      startPrompt();
+    };
+    ws.onclose = function() {
+
+    };
+    var startPrompt = function () {
+      // Start the prompt
+      jqconsole.Prompt(true, function (input) {
+        ws.send(input);
+      });
+    };
+
+  });
+</script>
+</body></html>

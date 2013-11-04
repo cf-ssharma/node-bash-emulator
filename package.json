@@ -1,0 +1,36 @@
+{
+  "name": "cf-nodemanager",
+  "version": "0.0.0",
+  "description": "Tool to manage running node processes in Content Fleet;s server",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "make test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/ContentFleet/cf-nodemanager.git"
+  },
+  "keywords": [
+    "nodemanager"
+  ],
+  "author": "Shobhit Sharma <ssharma@contentfleet.com>",
+  "license": "Commercial",
+  "readmeFilename": "README.md",
+  "gitHead": "7a860d14a4f42f94e075cf6f09ae35465f961f2d",
+  "bugs": {
+    "url": "https://github.com/ContentFleet/cf-nodemanager/issues"
+  },
+  "private": true,
+  "devDependencies": {
+    "mocha": "~1.12.0"
+  },
+  "dependencies": {
+    "express": "2.x",
+    "sockjs": "*",
+    "ssh2" : "*",
+    "cf-log": "git+ssh://git@github.com:ContentFleet/cf-log.git#0.2.8"
+  }
+}
